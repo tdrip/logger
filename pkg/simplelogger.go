@@ -7,7 +7,7 @@ import (
 	"time"
 
 	kitlevel "github.com/go-kit/kit/log/level"
-	sli "github.com/tdrip/logger/interfaces"
+	sli "github.com/tdrip/logger/pkg/interfaces"
 )
 
 type SimpleLogger struct {
