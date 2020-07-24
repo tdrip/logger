@@ -1,7 +1,7 @@
 package main
 
 import (
-	sl "github.com/tdrip/logger"
+	sl "github.com/tdrip/logger/pkg"
 )
 
 func main() {
