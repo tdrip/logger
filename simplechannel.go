@@ -5,7 +5,7 @@ import (
 
 	kitlog "github.com/go-kit/kit/log"
 	kitlevel "github.com/go-kit/kit/log/level"
-	sli "gitlab.venafi.com/ProfessionalServices/gologging/interfaces"
+	sli "github.com/tdrip/logger/interfaces"
 )
 
 // Simple Channel represents and output channel to be logged to
