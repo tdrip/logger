@@ -49,6 +49,36 @@ func NewApplicationSessionLogger(sessionid string) *SimpleLogger {
 	return NewSimpleLogger(appname+".log", sessionid)
 }
 
+func NewApplicationNowLogger() *SimpleLogger {
+	return NewAppSessionNowLogger(RandomSessionID())
+}
+
+func NewAppSessionNowLogger(sessionid string) *SimpleLogger {
+
+	appname, err := os.Executable()
+
+	if err != nil {
+		appname = "unknown"
+	}
+	filename := appname + "-" + time.Now().Format("2006-01-02-15-04-05")
+	return NewSimpleLogger(filename+".log", sessionid)
+}
+
+func NewApplicationDayLogger() *SimpleLogger {
+	return NewAppSessionDayLogger(RandomSessionID())
+}
+
+func NewAppSessionDayLogger(sessionid string) *SimpleLogger {
+
+	appname, err := os.Executable()
+
+	if err != nil {
+		appname = "unknown"
+	}
+	filename := appname + "-" + time.Now().Format("2006-01-02")
+	return NewSimpleLogger(filename+".log", sessionid)
+}
+
 // This lets you specify the filename and the session
 func NewSimpleLogger(filename string, sessionid string) *SimpleLogger {
 
