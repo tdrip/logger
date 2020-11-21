@@ -285,24 +285,24 @@ func printscreen(ssl *SimpleLogger, lvl string, cmd string, msg string) {
 		switch lvl {
 		case "debug":
 			if ssl.GetPrintToScreen() == sli.PrintDebug {
-				fmt.Println(fmt.Sprintf("[%s] [%s] - %s", lvl, cmd, msg))
+				fmt.Println(fmt.Sprintf("Debug: [%s] - %s", cmd, msg))
 			}
 		case "warn":
-			fmt.Println(fmt.Sprintf("[%s] [%s] - %s", lvl, cmd, msg))
+			fmt.Println(fmt.Sprintf("Warning: [%s] - %s", cmd, msg))
 		case "info":
-			fmt.Println(fmt.Sprintf("[%s] [%s] - %s", lvl, cmd, msg))
+			fmt.Println(fmt.Sprintf("Info: [%s] - %s", cmd, msg))
 		case "error":
-			fmt.Println(fmt.Sprintf("[%s] [%s] - %s", lvl, cmd, msg))
+			fmt.Println(fmt.Sprintf("Error: [%s] - %s", cmd, msg))
 		case "debugf":
 			if ssl.GetPrintToScreen() == sli.PrintDebug {
-				fmt.Println(fmt.Sprintf("[%s] [%s] - %s", lvl, cmd, msg))
+				fmt.Println(fmt.Sprintf("Debug: [%s] - %s", cmd, msg))
 			}
 		case "warnf":
-			fmt.Println(fmt.Sprintf("[%s] [%s] - %s", lvl, cmd, msg))
+			fmt.Println(fmt.Sprintf("Warning: %s - %s", cmd, msg))
 		case "infof":
-			fmt.Println(fmt.Sprintf("[%s] [%s] - %s", lvl, cmd, msg))
+			fmt.Println(fmt.Sprintf("Info: %s - %s", cmd, msg))
 		case "errorf":
-			fmt.Println(fmt.Sprintf("[%s] [%s] - %s", lvl, cmd, msg))
+			fmt.Println(fmt.Sprintf("Error: %s - %s", cmd, msg))
 		}
 	}
 
