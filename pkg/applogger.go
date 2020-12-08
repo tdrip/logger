@@ -52,7 +52,7 @@ func (al *AppLogger) LogDebug(cmd string, data ...interface{}) {
 		al.StartLogging()
 	}
 	if al.Log != nil {
-		al.Log.LogDebug(cmd, data)
+		al.Log.LogDebug(cmd, data...)
 	}
 }
 
@@ -61,7 +61,7 @@ func (al *AppLogger) LogWarn(cmd string, data ...interface{}) {
 		al.StartLogging()
 	}
 	if al.Log != nil {
-		al.Log.LogWarn(cmd, data)
+		al.Log.LogWarn(cmd, data...)
 	}
 }
 
@@ -70,7 +70,7 @@ func (al *AppLogger) LogInfo(cmd string, data ...interface{}) {
 		al.StartLogging()
 	}
 	if al.Log != nil {
-		al.Log.LogInfo(cmd, data)
+		al.Log.LogInfo(cmd, data...)
 	}
 }
 
@@ -79,7 +79,7 @@ func (al *AppLogger) LogError(cmd string, data ...interface{}) {
 		al.StartLogging()
 	}
 	if al.Log != nil {
-		al.Log.LogError(cmd, data)
+		al.Log.LogError(cmd, data...)
 	}
 }
 
@@ -93,13 +93,23 @@ func (al *AppLogger) LogErrorE(cmd string, data error) {
 	}
 }
 
+// This Log error allows errors to be logged .Error() is the data written
+func (al *AppLogger) LogErrorEf(cmd string, msg string, e error) {
+	if !al.Started {
+		al.StartLogging()
+	}
+	if al.Log != nil {
+		al.Log.LogErrorEf(cmd, msg, e)
+	}
+}
+
 // the logging functions are here
 func (al *AppLogger) LogDebugf(cmd string, msg string, data ...interface{}) {
 	if !al.Started {
 		al.StartLogging()
 	}
 	if al.Log != nil {
-		al.Log.LogDebugf(cmd, msg, data)
+		al.Log.LogDebugf(cmd, msg, data...)
 	}
 }
 
@@ -108,7 +118,7 @@ func (al *AppLogger) LogWarnf(cmd string, msg string, data ...interface{}) {
 		al.StartLogging()
 	}
 	if al.Log != nil {
-		al.Log.LogWarnf(cmd, msg, data)
+		al.Log.LogWarnf(cmd, msg, data...)
 	}
 }
 
@@ -117,7 +127,7 @@ func (al *AppLogger) LogInfof(cmd string, msg string, data ...interface{}) {
 		al.StartLogging()
 	}
 	if al.Log != nil {
-		al.Log.LogInfof(cmd, msg, data)
+		al.Log.LogInfof(cmd, msg, data...)
 	}
 }
 
@@ -126,6 +136,6 @@ func (al *AppLogger) LogErrorf(cmd string, msg string, data ...interface{}) {
 		al.StartLogging()
 	}
 	if al.Log != nil {
-		al.Log.LogErrorf(cmd, msg, data)
+		al.Log.LogErrorf(cmd, msg, data...)
 	}
 }

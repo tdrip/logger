@@ -319,24 +319,29 @@ func printscreen(ssl *SimpleLogger, lvl string, cmd string, msg string) {
 
 // the logging functions are here
 func (ssl *SimpleLogger) LogDebug(cmd string, data ...interface{}) {
-	log(ssl, "debug", cmd, "%s", data)
+	log(ssl, "debug", cmd, "%s", data...)
 }
 
 func (ssl *SimpleLogger) LogWarn(cmd string, data ...interface{}) {
-	log(ssl, "warn", cmd, "%s", data)
+	log(ssl, "warn", cmd, "%s", data...)
 }
 
 func (ssl *SimpleLogger) LogInfo(cmd string, data ...interface{}) {
-	log(ssl, "info", cmd, "%s", data)
+	log(ssl, "info", cmd, "%s", data...)
 }
 
 func (ssl *SimpleLogger) LogError(cmd string, data ...interface{}) {
-	log(ssl, "error", cmd, "%s", data)
+	log(ssl, "error", cmd, "%s", data...)
 }
 
 // This Log error allows errors to be logged .Error() is the data written
-func (ssl *SimpleLogger) LogErrorE(cmd string, data error) {
-	log(ssl, "error", cmd, "%s", data.Error())
+func (ssl *SimpleLogger) LogErrorE(cmd string, e error) {
+	log(ssl, "error", cmd, "%s", e.Error())
+}
+
+// This Log error allows errors to be logged where .Error() will be passed into the string
+func (ssl *SimpleLogger) LogErrorEf(cmd string, msg string, e error) {
+	log(ssl, "error", cmd, msg, e.Error())
 }
 
 // the logging functions are here
