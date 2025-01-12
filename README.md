@@ -4,3 +4,4 @@ This package designed to encapsulate the kit-log library for a number of usecase
 
 This library is really for personal use however it is available however is not supported and is MIT license based.
 
+Updated
